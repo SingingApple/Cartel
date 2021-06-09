@@ -1,0 +1,8 @@
+.navbar {
+  align-items: center;
+  padding: 2rem 15px 1rem 15px;
+  border-bottom: 2px solid #c3c3c3;
+}
+.navbar__username {
+  margin-right: 5px;
+}

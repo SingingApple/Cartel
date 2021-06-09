@@ -1,0 +1,23 @@
+.sidebar {
+  flex-direction: column;
+}
+.sidebar__content {
+  flex-direction: column;
+}
+.sidebar__content h6 {
+  text-align: center;
+}
+.sidebar__header__image {
+  border-radius: 10px;
+}
+li {
+  padding-left: 1rem;
+  font-weight: 500;
+}
+li:active {
+  border-left: 4px solid red;
+  color: red;
+}
+.sidebar__navigation {
+  width: 100%;
+}

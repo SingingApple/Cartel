@@ -1,0 +1,18 @@
+#basic-addon1 {
+  background-color: transparent !important;
+}
+.input-group {
+  max-width: 40%;
+}
+.kitchen__form__interactions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.kitchen__form__interactions__plusContainer {
+  padding: 0.5rem;
+  background: red !important;
+  color: #fff;
+  margin-left: 10px;
+  align-items: center;
+}
