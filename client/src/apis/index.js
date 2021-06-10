@@ -1,6 +1,6 @@
 import axios from 'axios';
 const API = axios.create({
-    baseUrl: `https://ktichen-singingapple.herokuapp.com`
+    baseURL: `https://ktichen-singingapple.herokuapp.com`
 })
 
 const config = {
