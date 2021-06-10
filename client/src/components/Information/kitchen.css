@@ -1,0 +1,9 @@
+td,
+tr {
+  outline: none !important;
+  border: none;
+  background-color: transparent !important;
+}
+a {
+  color: #333;
+}

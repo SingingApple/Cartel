@@ -1,5 +1,6 @@
 .sidebar {
   flex-direction: column;
+  cursor: pointer;
 }
 .sidebar__content {
   flex-direction: column;

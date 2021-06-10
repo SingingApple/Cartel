@@ -1,43 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactStars from "react-rating-stars-component";
 
-const Kitchen = () => {
+import ToggleButton from "react-toggle-button";
+import "./kitchen.css";
+const Kitchen = ({
+  index,
+  kitchen: { owner, email, location, contact_no, cost, rating },
+}) => {
+  const [toggle, setToggle] = useState(true);
+  console.log(owner);
   return (
     <div className="kitchen">
-      <table class="table" style={{ border: "2px solid #c3c3c3" }}>
+      <table className="table" style={{ border: "2px solid #c3c3c3" }}>
         <tbody>
-          <tr style={{ textAlign: "center" }}>
-            <td>1</td>
-            <td>Radha Kitchen</td>
+          <tr
+            className="d-flex align-items-center justify-content-between"
+            style={{ textAlign: "center", alignItems: "center" }}
+          >
+            <td>{index}</td>
+            <td>{owner}</td>
             <td style={{ textAlign: "center" }}>
               <i className="fas fa-map-marked-alt"></i>
-              Pimple Saudagar <br /> Srinagar
+              {location}
             </td>
             <td>
               {" "}
               <ReactStars
                 count={5}
-                value={4}
+                value={rating}
                 edit={false}
                 size={24}
                 activeColor="#ffd700"
               />
               ,
             </td>
-            <td>radha@gmail.com</td>
-            <td>9839111222</td>
-            <td>Rs 19000</td>
+            <td>{email}</td>
+            <td>{contact_no}</td>
+            <td>Rs {cost}</td>
             <td>
-              <div className="custom-control custom-switch">
-                <input
-                  type="checkbox"
-                  className="custom-control-input"
-                  id="customSwitch1"
-                />
-                <label className="custom-control-label" for="customSwitch1">
-                  Toggle this switch element
-                </label>
-              </div>
+              <ToggleButton
+                value={toggle}
+                onToggle={() => setToggle(!toggle)}
+              />
             </td>
           </tr>
         </tbody>

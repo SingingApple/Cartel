@@ -6,3 +6,10 @@
 .navbar__username {
   margin-right: 5px;
 }
+a {
+  padding: 10px;
+  font-size: 1.2rem;
+}
+.active-navbar {
+  font-weight: bold;
+}

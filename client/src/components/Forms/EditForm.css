@@ -1,0 +1,11 @@
+.img-thumbnail {
+  width: 140px !important;
+  height: 150px !important;
+}
+.form__header {
+  width: 50%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
