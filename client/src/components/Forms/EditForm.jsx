@@ -38,7 +38,7 @@ const EditForm = () => {
       <form>
         <div className="row my-3">
           <div className="col">
-            <div class="input-group" id="file">
+            <div className="input-group" id="file">
               <input
                 type="text"
                 value={formData.restaurant}
@@ -129,7 +129,7 @@ const EditForm = () => {
                 onChange={handleCheckbox}
                 id="flexCheckChecked"
               />
-              <label className="form-check-label" for="flexCheckChecked">
+              <label className="form-check-label" htmlFor="flexCheckChecked">
                 North Eastern
               </label>
             </div>
@@ -140,7 +140,7 @@ const EditForm = () => {
                 value=""
                 id="flexCheckDefault"
               />
-              <label className="form-check-label" for="flexCheckDefault">
+              <label className="form-check-label" htmlFor="flexCheckDefault">
                 South Indian
               </label>
             </div>
@@ -151,7 +151,7 @@ const EditForm = () => {
                 value=""
                 id="flexCheckChecked"
               />
-              <label className="form-check-label" for="flexCheckChecked">
+              <label className="form-check-label" htmlFor="flexCheckChecked">
                 Bihari
               </label>
             </div>
@@ -164,7 +164,7 @@ const EditForm = () => {
                 value=""
                 id="flexCheckDefault"
               />
-              <label className="form-check-label" for="flexCheckDefault">
+              <label className="form-check-label" htmlFor="flexCheckDefault">
                 Bengali
               </label>
             </div>
@@ -175,7 +175,7 @@ const EditForm = () => {
                 value=""
                 id="flexCheckChecked"
               />
-              <label className="form-check-label" for="flexCheckChecked">
+              <label className="form-check-label" htmlFor="flexCheckChecked">
                 Punjabi
               </label>
             </div>
@@ -186,7 +186,7 @@ const EditForm = () => {
                 value=""
                 id="flexCheckChecked"
               />
-              <label className="form-check-label" for="flexCheckChecked">
+              <label className="form-check-label" htmlFor="flexCheckChecked">
                 Gujarati
               </label>
             </div>
@@ -199,7 +199,7 @@ const EditForm = () => {
                 value=""
                 id="flexCheckDefault"
               />
-              <label className="form-check-label" for="flexCheckDefault">
+              <label className="form-check-label" htmlFor="flexCheckDefault">
                 Kashmiri
               </label>
             </div>
@@ -210,7 +210,7 @@ const EditForm = () => {
                 value=""
                 id="flexCheckChecked"
               />
-              <label className="form-check-label" for="flexCheckChecked">
+              <label className="form-check-label" htmlFor="flexCheckChecked">
                 Maharashtrian
               </label>
             </div>
@@ -221,7 +221,7 @@ const EditForm = () => {
                 value=""
                 id="flexCheckChecked"
               />
-              <label className="form-check-label" for="flexCheckChecked">
+              <label className="form-check-label" htmlFor="flexCheckChecked">
                 Rajasthani
               </label>
             </div>

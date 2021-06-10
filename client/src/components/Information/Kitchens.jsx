@@ -13,7 +13,7 @@ const Kitchens = () => {
   return (
     <div className="kitchens container mt-3">
       <div className="kitchens__form d-flex justify-content-between">
-        <div class="input-group">
+        <div className="input-group">
           <input
             type="text"
             className="form-control"
@@ -21,12 +21,12 @@ const Kitchens = () => {
             aria-label="Username"
             aria-describedby="basic-addon1"
           />
-          <span class="input-group-text" id="basic-addon1">
+          <span className="input-group-text" id="basic-addon1">
             <i className="fas fa-search"></i>
           </span>
         </div>
         <div className="kitchen__form__interactions">
-          <i class="fas fa-sliders-h fa-2x"></i>
+          <i className="fas fa-sliders-h fa-2x"></i>
           <Link
             to="/kitchen/addKitchen"
             className="kitchen__form__interactions__plusContainer"

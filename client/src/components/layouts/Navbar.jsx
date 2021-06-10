@@ -16,7 +16,7 @@ const Navbar = () => {
         {paths.map((path, index) => {
           let routeTo = `/${paths.slice(0, index).join("/")}`;
           return (
-            <span>
+            <span key={index + 1}>
               {!index && ">"}
               <NavLink activeClassName="active-navbar" to={routeTo}>
                 {path.toUpperCase()}
