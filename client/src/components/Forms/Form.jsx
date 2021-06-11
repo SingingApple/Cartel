@@ -116,7 +116,17 @@ const Form = () => {
               placeholder="Preparation Time"
             />
           </div>
-          <div className="col"></div>
+          <div className="col-sm-12 col-lg-4">
+            <input
+              name="cost"
+              onChange={handleChange}
+              required
+              value={formData.cost}
+              type="number"
+              className="form-control"
+              placeholder="Price"
+            />
+          </div>
         </div>
         <div className="row p-1 checkboxes" style={{ width: "50%" }}>
           <div className="col">
