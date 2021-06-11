@@ -15,7 +15,7 @@ export const getAllKitchens = async () => {
         console.log(data);
         return data;
     } catch (error) {
-
+        console.log(error);
     }
 }
 
@@ -24,6 +24,26 @@ export const getKitchenById = async (id) => {
         const { data } = await API.get(`/kitchen/${id}`, config)
         return data;
     } catch (error) {
+        console.log(error);
+    }
+}
 
+export const addKitchen = async (formData, history) => {
+    try {
+        const { data } = await API.post('/kitchen/new', formData, config);
+        console.log(data);
+        history.push('/')
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+export const editKitchen = async (formData, history, id) => {
+    try {
+        const { data } = await API.patch(`/kitchen/${id}`, formData, config);
+        console.log(data);
+        history.push('/')
+    } catch (error) {
+        console.log(error);
     }
 }

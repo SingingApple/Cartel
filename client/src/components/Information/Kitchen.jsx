@@ -32,7 +32,6 @@ const Kitchen = ({
                 size={24}
                 activeColor="#ffd700"
               />
-              ,
             </td>
             <td>{email}</td>
             <td>{contact_no}</td>

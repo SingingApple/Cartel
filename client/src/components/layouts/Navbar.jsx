@@ -13,15 +13,18 @@ const Navbar = () => {
     >
       <div className="navbar__link">
         <NavLink to="/">HOME</NavLink>
-        {paths.map((path, index) => {
+        {paths.slice(0, 2).map((path, index) => {
           let routeTo = `/${paths.slice(0, index).join("/")}`;
           return (
             <span key={index + 1}>
               {!index && ">"}
               <NavLink activeClassName="active-navbar" to={routeTo}>
-                {path.toUpperCase()}
+                {path}
               </NavLink>
-              {index + 1 === paths.length ? null : ">"}
+              {console.log(paths, paths.includes("editKitchen"))}
+              {index + 1 === paths.length && paths.includes("editKitchen")
+                ? null
+                : ">"}
             </span>
           );
         })}

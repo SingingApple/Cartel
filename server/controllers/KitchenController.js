@@ -17,7 +17,7 @@ module.exports.getAllKitchens = async (req, res) => {
 module.exports.getKitchenById = async (req, res) => {
     try {
         const kitchen = await Kitchen.findOne({
-            _id: req.params.post_id,
+            _id: req.params.kitchenId,
         })
         return res.json(kitchen);
     } catch (error) {
@@ -32,9 +32,22 @@ module.exports.getKitchenById = async (req, res) => {
 
 
 module.exports.createKitchen = async (req, res) => {
-    const { owner, location, rating, email, contact_no, cost } = req.body;
     try {
         const newKitchen = await Kitchen.create(req.body);
+        await newKitchen.save();
+        return res.status(200).json(newKitchen)
+    } catch (error) {
+        console.log(error.message);
+        return res.status(500).send("Server Error");
+    }
+}
+
+module.exports.editKitchen = async (req, res) => {
+
+    try {
+        console.log(req.params);
+        const newKitchen = await Kitchen.findByIdAndUpdate(req.params.kitchenId, req.body, { new: true });
+        console.log(newKitchen);
         await newKitchen.save();
         return res.status(200).json(newKitchen)
     } catch (error) {

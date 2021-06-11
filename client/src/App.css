@@ -27,3 +27,11 @@ li {
 .main {
   flex: 0.9;
 }
+@media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+  .main {
+    flex: 1;
+  }
+}

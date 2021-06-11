@@ -13,3 +13,8 @@ a {
 .active-navbar {
   font-weight: bold;
 }
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+  }
+}

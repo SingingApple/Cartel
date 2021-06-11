@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { getKitchenById } from "../../apis/index";
+import { useParams, useHistory } from "react-router-dom";
+import { editKitchen, getKitchenById } from "../../apis/index";
 
 import "./EditForm.css";
 const EditForm = () => {
   const params = useParams();
+  const history = useHistory();
   const [formData, setFormData] = useState({});
   useEffect(() => {
     getKitchenById(params.id).then((data) => {
@@ -13,18 +14,22 @@ const EditForm = () => {
     });
   }, [params.id]);
   console.log(formData);
-  const handleChange = (e) => {};
-  const handleCheckbox = (e) => {};
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+  const handleCheckbox = (e) => {
+    setFormData({ ...formData, [e.target.name]: !e.target.selected });
+    console.log(formData);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    editKitchen(formData, history, params.id);
+  };
 
-  useEffect(() => {}, []);
   return (
     <div className="container">
       <div className="form__header">
-        <img
-          src="https://pbs.twimg.com/media/EtDVfFGUwAAxz-Y.jpg"
-          alt="image"
-          className="img-thumbnail"
-        />
+        <img src={formData.image} alt="image" className="img-thumbnail" />
         <button type="button" className="btn btn-danger">
           Kitchen Details
         </button>
@@ -35,20 +40,9 @@ const EditForm = () => {
           Ratings
         </button>
       </div>
-      <form>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <div className="row my-3">
-          <div className="col">
-            <div className="input-group" id="file">
-              <input
-                type="text"
-                value={formData.restaurant}
-                style={{ borderRight: "none" }}
-                className="form-control "
-                placeholder="Restaurant"
-              />
-            </div>
-          </div>
-          <div className="col">
+          <div className="col-sm-12 col-lg-4">
             <input
               name="owner"
               onChange={handleChange}
@@ -59,9 +53,9 @@ const EditForm = () => {
               required
             />
           </div>
-          <div className="col">
+          <div className="col-sm-12 col-lg-4">
             <input
-              name="Address"
+              name="location"
               onChange={handleChange}
               type="text"
               value={formData.location}
@@ -69,11 +63,9 @@ const EditForm = () => {
               placeholder="Address"
             />
           </div>
-        </div>
-        <div className="row my-3">
-          <div className="col">
+          <div className="col-sm-12 col-lg-4">
             <input
-              name="Kitchen Name"
+              name="kitchen"
               onChange={handleChange}
               required
               value={formData.restaurant}
@@ -82,9 +74,11 @@ const EditForm = () => {
               placeholder="Kitchen Name"
             />
           </div>
-          <div className="col">
+        </div>
+        <div className="row my-3">
+          <div className="col-sm-12 col-lg-4">
             <input
-              name="Email"
+              name="email"
               onChange={handleChange}
               required
               value={formData.email}
@@ -93,11 +87,12 @@ const EditForm = () => {
               placeholder="Email"
             />
           </div>
-          <div className="col">
+          <div className="col-sm-12 col-lg-4">
             <input
-              name="owner"
+              name="fssai"
               onChange={handleChange}
               required
+              value={formData.fssai}
               type="text"
               className="form-control"
               placeholder="FSSAI Number"
@@ -105,10 +100,10 @@ const EditForm = () => {
           </div>
         </div>
         <div className="row my-3">
-          <div className="col">
+          <div className="col-sm-12 col-lg-4">
             <input
-              name="owner"
-              value={formData.cost}
+              name="contact_no"
+              value={formData.contact_no}
               onChange={handleChange}
               required
               type="number"
@@ -119,13 +114,14 @@ const EditForm = () => {
           <div className="col"></div>
           <div className="col"></div>
         </div>
-        <div className="row p-1" style={{ width: "80%" }}>
+        <div className="row p-1 checkboxes" style={{ width: "50%" }}>
           <div className="col">
             <div className="form-check">
               <input
                 className="form-check-input"
                 type="checkbox"
                 name="northEastern"
+                defaultChecked={formData.northEastern}
                 onChange={handleCheckbox}
                 id="flexCheckChecked"
               />
@@ -137,7 +133,9 @@ const EditForm = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
+                name="southIndian"
+                defaultChecked={formData.southIndian}
+                onChange={handleCheckbox}
                 id="flexCheckDefault"
               />
               <label className="form-check-label" htmlFor="flexCheckDefault">
@@ -148,7 +146,9 @@ const EditForm = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
+                defaultChecked={formData.bihari}
+                name="bihari"
+                onChange={handleCheckbox}
                 id="flexCheckChecked"
               />
               <label className="form-check-label" htmlFor="flexCheckChecked">
@@ -161,7 +161,9 @@ const EditForm = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
+                name="bengali"
+                defaultChecked={formData.bengali}
+                onChange={handleCheckbox}
                 id="flexCheckDefault"
               />
               <label className="form-check-label" htmlFor="flexCheckDefault">
@@ -172,7 +174,9 @@ const EditForm = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
+                defaultChecked={formData.punjabi}
+                name="punjabi"
+                onChange={handleCheckbox}
                 id="flexCheckChecked"
               />
               <label className="form-check-label" htmlFor="flexCheckChecked">
@@ -183,7 +187,9 @@ const EditForm = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
+                name="gujarati"
+                defaultChecked={formData.gujarati}
+                onChange={handleCheckbox}
                 id="flexCheckChecked"
               />
               <label className="form-check-label" htmlFor="flexCheckChecked">
@@ -196,7 +202,9 @@ const EditForm = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
+                name="kashmiri"
+                defaultChecked={formData.kashmiri}
+                onChange={handleCheckbox}
                 id="flexCheckDefault"
               />
               <label className="form-check-label" htmlFor="flexCheckDefault">
@@ -207,7 +215,9 @@ const EditForm = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
+                name="maharashtrian"
+                defaultChecked={formData.maharashtrian}
+                onChange={handleCheckbox}
                 id="flexCheckChecked"
               />
               <label className="form-check-label" htmlFor="flexCheckChecked">
@@ -218,7 +228,9 @@ const EditForm = () => {
               <input
                 className="form-check-input"
                 type="checkbox"
-                value=""
+                defaultChecked={formData.rajasthani}
+                name="rajasthani"
+                onChange={handleCheckbox}
                 id="flexCheckChecked"
               />
               <label className="form-check-label" htmlFor="flexCheckChecked">
@@ -287,15 +299,19 @@ const EditForm = () => {
             <input type="text" className="form-control" />
           </div>
         </div>
+        <div className="d-flex justify-content-end py-3">
+          <button type="submit" className="btn btn-success mx-3">
+            Save
+          </button>
+          <button
+            type="reset"
+            className="btn btn-danger"
+            onClick={() => setFormData({})}
+          >
+            Cancel
+          </button>
+        </div>
       </form>
-      <div className="d-flex justify-content-end py-3">
-        <button type="button" className="btn btn-success mx-3">
-          Save
-        </button>
-        <button type="button" className="btn btn-danger">
-          Cancel
-        </button>
-      </div>
     </div>
   );
 };

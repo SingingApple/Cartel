@@ -7,3 +7,11 @@ tr {
 a {
   color: #333;
 }
+
+@media (max-width: 768px) {
+  tr.d-flex {
+    flex-direction: column;
+    text-align: left !important;
+    align-items: flex-start !important;
+  }
+}
